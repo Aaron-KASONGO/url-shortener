@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>My link</title>
+</head>
+<body>
+<ul>
+    {% for mini in minis %}
+    <li>{{ mini.pseudo }} via <a href="{% url 'redirect' mini.code %}" target="_blank">{{ request.get_host }}{% url 'redirect' mini.code %}</a></li>
+    {% empty %}
+    <p>Rien à afficher</p>
+    {% endfor %}
+</ul>
+<br>
+<a href="{% url 'create' %}">Créer un raccourci</a>
+</body>
+</html>

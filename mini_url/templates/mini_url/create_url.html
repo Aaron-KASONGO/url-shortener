@@ -5,7 +5,7 @@
     <title>Create URL</title>
 </head>
 <body>
-<form method="post" action="{% url 'create' %}">
+<form method="post" action="">
     {% csrf_token %}
     {{ form.as_p }}
     <button type="submit">CREATE</button>

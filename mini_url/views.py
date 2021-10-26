@@ -19,6 +19,9 @@ class HomeView(generic.ListView):
     model = MiniUrl
     context_object_name = 'minis'
     template_name = 'mini_url/home.html'
+    
+    def get_queryset(self):
+        return MiniUrl.objects.filter(author=self.request.user)
 
 
 """@login_required
@@ -48,6 +51,30 @@ class CreateUrlView(generic.CreateView):
         mini.author = self.request.user
         form.save()
         return redirect(self.success_url)
+
+
+@method_decorator(login_required, name='dispatch')
+class UpdateUrlView(generic.UpdateView):
+    model = MiniUrl
+    template_name = 'mini_url/create_url.html'
+    form_class = MiniUrlForm
+    success_url = reverse_lazy('home')
+
+    def get_object(self, queryset=None):
+        code = self.kwargs.get('code', None)
+        return get_object_or_404(MiniUrl, code=code)
+
+
+@method_decorator(login_required, name='dispatch')
+class DeleteUrlView(generic.DeleteView):
+    model = MiniUrl
+    context_object_name = 'mini_url'
+    template_name = 'mini_url/delete.html'
+    success_url = reverse_lazy('home')
+
+    def get_object(self, queryset=None):
+        code = self.kwargs.get('code', None)
+        return get_object_or_404(MiniUrl, code=code)
 
 
 @login_required

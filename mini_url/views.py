@@ -1,18 +1,27 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth import authenticate, login
+from django.urls import reverse_lazy
 from django.contrib.auth.decorators import login_required
+from django.utils.decorators import method_decorator
+from django.views import generic
 from .forms import MiniUrlForm, UserForm, SigninForm
 from .models import MiniUrl
 
 
-# Create your views here.
-@login_required
+"""@login_required
 def home(request):
     mini_urls = MiniUrl.objects.all()
-    return render(request, 'mini_url/home.html', {'minis': mini_urls})
+    return render(request, 'mini_url/home.html', {'minis': mini_urls})"""
+
+# Class based view which do the same with the home function
+@method_decorator(login_required, name='dispatch')
+class HomeView(generic.ListView):
+    model = MiniUrl
+    context_object_name = 'minis'
+    template_name = 'mini_url/home.html'
 
 
-@login_required
+"""@login_required
 def create_url(request):
     if request.method == 'POST':
         form = MiniUrlForm(request.POST)
@@ -25,7 +34,20 @@ def create_url(request):
             return render(request, 'mini_url/create_url.html', {'form': form})
     else:
         form = MiniUrlForm()
-        return render(request, 'mini_url/create_url.html', {'form': form})
+        return render(request, 'mini_url/create_url.html', {'form': form})"""
+
+@method_decorator(login_required, name='dispatch')
+class CreateUrlView(generic.CreateView):
+    model = MiniUrl
+    template_name = 'mini_url/create_url.html'
+    form_class = MiniUrlForm
+    success_url = reverse_lazy('home')
+
+    def form_valid(self, form):
+        mini = form.save(commit=False)
+        mini.author = self.request.user
+        form.save()
+        return redirect(self.success_url)
 
 
 @login_required

@@ -119,3 +119,10 @@ class Login(views.LoginView):
 
 class Logout(views.LogoutView):
     next_page = reverse_lazy('home')
+
+class ChangePasswordView(views.PasswordChangeView):
+    template_name = 'mini_url/passwordchange.html'
+    success_url = reverse_lazy('home')
+
+class PasswordDone(views.PasswordChangeDoneView):
+    tempalte_name = 'mini_url/passwordchange_done.html'

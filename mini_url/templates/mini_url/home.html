@@ -7,6 +7,8 @@
 <body>
     <a href="{% url 'logout' %}">Se déconnecter</a>
     <br>
+    <a href="{% url 'changepassword' %}">Changer de mot de passe</a>
+    <br>
     <ul>
         {% for mini in minis %}
         <li>{{ mini.pseudo }} via <a href="{% url 'redirect' mini.code %}" target="_blank">{{ request.get_host }}{% url 'redirect' mini.code %}</a><br><a href="{% url 'update' mini.code %}">Modifier</a><br><a href="{% url 'delete' mini.code %}">Supprimer</a></li>

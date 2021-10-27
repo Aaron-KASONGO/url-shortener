@@ -3,12 +3,28 @@ from django import forms
 from .models import MiniUrl
 from django.contrib.auth.hashers import check_password, make_password
 from django.contrib.auth.models import User
+import random
+import string
 
 
 class MiniUrlForm(ModelForm):
     class Meta:
         model = MiniUrl
         fields = ('url', 'pseudo')
+    
+    def save(self, commit=True, *args, **kwargs):
+        mini = super(MiniUrlForm, self).save(commit=False)
+        nb = 6
+        caracters = string.ascii_letters + string.digits
+        code_list = [random.choice(caracters) for _ in range(nb)]
+        code = ''.join(code_list)
+        while MiniUrl.objects.filter(code=code).exists():
+            code_list = [random.choice(caracters) for _ in range(nb)]
+            code = ''.join(code_list)
+        mini.code = code
+        if commit:
+            mini.save()
+        return mini
 
 
 class UserForm(ModelForm):

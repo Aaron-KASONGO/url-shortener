@@ -8,5 +8,6 @@ urlpatterns = [
     path('delete/<str:code>', views.DeleteUrlView.as_view(), name='delete'),
     path('<str:code>', views.access, name='redirect'),
     path('register/', views.register, name='register'),
-    path('signin/', views.signin, name='signin'),
+    path('signin/', views.Login.as_view(), name='signin'),
+    path('logout/', views.Logout.as_view(), name='logout'),
 ]

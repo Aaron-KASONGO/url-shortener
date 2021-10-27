@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth import authenticate, login
 from django.urls import reverse_lazy
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth import views
 from django.utils.decorators import method_decorator
 from django.views import generic
 from .forms import MiniUrlForm, UserForm, SigninForm
@@ -99,7 +100,7 @@ def register(request):
         return render(request, 'mini_url/register.html', {'form': form})
 
 
-def signin(request):
+"""def signin(request):
     if request.method == 'POST':
         form = SigninForm(request.POST)
         if form.is_valid():
@@ -111,5 +112,10 @@ def signin(request):
             return render(request, 'mini_url/signin.html', {'form': form})
     else:
         form = SigninForm()
-        return render(request, 'mini_url/signin.html', {'form': form})
+        return render(request, 'mini_url/signin.html', {'form': form})"""
 
+class Login(views.LoginView):
+    template_name = 'mini_url/signin.html'
+
+class Logout(views.LogoutView):
+    next_page = reverse_lazy('home')

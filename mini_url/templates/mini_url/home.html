@@ -5,14 +5,17 @@
     <title>My link</title>
 </head>
 <body>
-<ul>
-    {% for mini in minis %}
-    <li>{{ mini.pseudo }} via <a href="{% url 'redirect' mini.code %}" target="_blank">{{ request.get_host }}{% url 'redirect' mini.code %}</a><br><a href="{% url 'update' mini.code %}">Modifier</a><br><a href="{% url 'delete' mini.code %}">Supprimer</a></li>
-    {% empty %}
-    <p>Rien à afficher</p>
-    {% endfor %}
-</ul>
-<br>
-<a href="{% url 'create' %}">Créer un raccourci</a>
+    <a href="{% url 'logout' %}">Se déconnecter</a>
+    <br>
+    <ul>
+        {% for mini in minis %}
+        <li>{{ mini.pseudo }} via <a href="{% url 'redirect' mini.code %}" target="_blank">{{ request.get_host }}{% url 'redirect' mini.code %}</a><br><a href="{% url 'update' mini.code %}">Modifier</a><br><a href="{% url 'delete' mini.code %}">Supprimer</a></li>
+        <hr>
+        {% empty %}
+        <p>Rien à afficher</p>
+        {% endfor %}
+    </ul>
+    <br>
+    <a href="{% url 'create' %}">Créer un raccourci</a>
 </body>
 </html>

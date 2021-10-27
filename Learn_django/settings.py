@@ -101,6 +101,7 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 LOGIN_URL = '/signin/'
+LOGIN_REDIRECT_URL = '/'
 
 
 # Internationalization

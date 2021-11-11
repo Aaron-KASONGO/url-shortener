@@ -19,5 +19,13 @@
     </ul>
     <br>
     <a href="{% url 'create' %}">Créer un raccourci</a>
+    <br>
+    {% if messages %}
+    <ul>
+        {% for message in messages %}
+            <li>{{ message }}</li>
+        {% endfor %}
+    </ul>
+    {% endif %}
 </body>
 </html>

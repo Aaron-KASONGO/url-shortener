@@ -7,6 +7,7 @@ from django.utils.decorators import method_decorator
 from django.views import generic
 from .forms import MiniUrlForm, UserForm, SigninForm
 from .models import MiniUrl
+from django.contrib import messages
 
 
 """@login_required
@@ -88,10 +89,12 @@ def access(request, code):
 
 
 def register(request):
+    messages.info(request, "Enregistrez-vous")
     if request.method == 'POST':
         form = UserForm(request.POST)
         if form.is_valid():
             form.save()
+            messages.info(request, f"Bien venue {request.user.username}")
             return redirect('signin')
         else:
             return render(request, 'mini_url/register.html', {'form': form})

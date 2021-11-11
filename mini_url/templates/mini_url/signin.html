@@ -11,5 +11,13 @@
         <button type="submit">SE CONNECTER</button>
     </form>
     <a href="{% url 'register' %}">S'incrire</a>
+    <br>
+    {% if messages %}
+    <ul>
+        {% for message in messages %}
+            <li>{{ message }}</li>
+        {% endfor %}
+    </ul>
+    {% endif %}
 </body>
 </html>

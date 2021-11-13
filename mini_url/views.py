@@ -95,7 +95,7 @@ def register(request):
         if form.is_valid():
             form.save()
             messages.info(request, f"Bien venue {request.user.username}")
-            return redirect('signin')
+            return redirect('shortener')
         else:
             return render(request, 'mini_url/register.html', {'form': form})
     else:
@@ -118,7 +118,7 @@ def register(request):
         return render(request, 'mini_url/signin.html', {'form': form})"""
 
 class Login(views.LoginView):
-    template_name = 'mini_url/signin.html'
+    template_name = 'mini_url/page.html'
 
 class Logout(views.LogoutView):
     next_page = reverse_lazy('home')

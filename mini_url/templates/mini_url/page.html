@@ -1,0 +1,298 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+{% block head %}
+<link rel="stylesheet" href="{% static 'mini_url/css/bootstrap.min.css' %}">
+<script src="{% static 'mini_url/js/bootstrap.bundle.min.js' %}" defer></script>
+<style>
+    .banner-img {
+        background: url(images/undraw_share_link_qtxe.png);
+        background-size: cover;
+        height: 400rem;
+    }
+    .blue-bg {
+        background-color: #051e50;
+        background-size: cover;
+    }
+</style>
+<title>Shortener</title>
+{% endblock %}
+{% block content %}
+<div class="navbar navbar-expand-lg navbar-light bg-white fixed-top">
+    <a href="#" class="navbar-brand ms-lg-5 ms-md-3 ms-1">
+        <img src="{% static 'mini_url/images/Bitly_icon-icons.com_66736.png' %}" alt="Icon-Bitly" class="img-fuid">
+    </a>
+    <button class="navbar-toggler me-3" data-bs-toggle="collapse" data-bs-target="#collapse">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <nav class="collapse navbar-collapse ms-lg-5" id="collapse">
+        <ul class="navbar-nav">
+            <li class="nav-item ms-3"><a href="#" class="nav-link rounded">Why bitly?</a></li>
+            <li class="nav-item ms-3"><a href="#" class="nav-link rounded active">Solutions</a></li>
+            <li class="nav-item ms-3"><a href="#" class="nav-link rounded">Features</a></li>
+            <li class="nav-item ms-3"><a href="#" class="nav-link rounded">Pricing</a></li>
+            <li class="nav-item ms-3"><a href="#" class="nav-link rounded">Ressources</a></li>
+        </ul>
+        <div class="mx-auto"></div>
+        <ul class="navbar-nav">
+            <li class="nav-item pe-lg-3"><a class="nav-link rounded text-center" data-bs-toggle="offcanvas" data-bs-target="#login-offcanvas">Log in</a></li>
+            <li class="nav-item pe-lg-3"><a href="{% url 'register' %}" class="nav-link rounded text-primary text-center">Sign up Free</a></li>
+            <li class="nav-item pe-lg-5"><a href="#" class="nav-link rounded btn btn-primary text-white text-center mx-3">Get a Quote</a></li>
+        </ul>
+    </nav>
+</div>
+<main class="container-fluid">
+    <div class="row banner-img vh-100">
+        <div class="col-12 col-lg-8 d-flex flex-column mt-5 p-5">
+            <h1 class="display-3 fw-bold text-start ms-5 mt-5">Short links, big results</h1>
+            <p class="lead fs-4 text-start ms-5 text-muted">A URL shortener built with powerful tools to help you grow and protect your brand.</p>
+            <button class="btn btn-primary btn-lg me-lg-auto ms-5 mt-4 px-lg-4 py-lg-3">Get Started fo Free</button>
+            <p class="ms-5 ps-lg-5"><a href="#" class="text-decoration-none">Get a Quote</a></p>
+        </div>
+    </div>
+</main>
+<div class="blue-bg px-5 py-4">
+    <form action="">
+        <div class="row">
+            <div class="col-12 col-lg-8 form-floating">
+                <input type="text" class="form-control p-4" name="link" id="link" placeholder="Shorten your link">
+                <label for="link">Shorten your link</label>
+            </div>
+            <div class="col-12 col-lg-4 mt-2 mt-lg-0">
+                <button class="btn btn-primary p-3 px-5 w-100">Shorten</button>
+            </div>
+            <div class="col-12">
+                <div class="text-center text-muted"><small>By clicking SHORTEN, you are agreeing to Bitly’s Terms of Service and Privacy Policy</small></div>
+            </div>
+        </div>
+    </form>
+</div>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-12 d-flex flex-column my-3">
+            <div class="text-center">Scroll to learn more</div>
+            <button class="btn">
+                <svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" fill="currentColor" class="bi bi-chevron-double-down" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd" d="M1.646 6.646a.5.5 0 0 1 .708 0L8 12.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/>
+                    <path fill-rule="evenodd" d="M1.646 2.646a.5.5 0 0 1 .708 0L8 8.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/>
+                </svg>
+            </button>
+        </div>
+        <div class="col-12 my-5">
+            <div class="text-center h2 fw-bold">The link shortener that has your brand’s back</div>
+            <div class="text-center lead text-muted">Your brand wasn’t built to be hidden. Help it stand out with branded links that drive more clicks.</div>
+        </div>
+    </div>
+    <div class="row p-lg-5 p-md-3 p-1">
+        <div class="col-12 col-lg-4 card border-0">
+            <img src="images/message.jpeg" alt="Message" class="card-img-top">
+            <div class="card-body">
+                <h4 class="card-title fw-bold text-center text-lg-start">Inspire trust</h3>
+                <p class="card-text text-center text-lg-start">With more clicks comes increased brand recognition and consumer trust in your communications—which in turn inspires even more engagement with your links. (It’s a wonderful cycle.)</p>
+            </div>                
+        </div>
+        <div class="col-12 col-lg-4 card border-0">
+            <img src="images/message.jpeg" alt="Message" class="card-img-top">
+            <div class="card-body">
+                <h4 class="card-title fw-bold text-center text-lg-start">Boost results</h3>
+                <p class="card-text text-center text-lg-start">On top of better deliverability and click-through, rich link-level data gives you crucial insight into your link engagement so your team can make smarter decisions around its content and communications.</p>
+            </div>                
+        </div>
+        <div class="col-12 col-lg-4 card border-0">
+            <img src="images/message.jpeg" alt="Message" class="card-img-top">
+            <div class="card-body">
+                <h4 class="card-title fw-bold text-center text-lg-start">Gain control</h3>
+                <p class="card-text text-center text-lg-start">Take credit for your content and learn more about how it’s consumed by enabling auto-branding—a feature that ensures your brand remains in any link someone shortens pointing to your website.</p>
+            </div>                
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12 d-flex justify-content-center flex-column my-4">
+            <button class="btn btn-outline-light text-primary btn-lg mx-md-auto">Get Started for Free</button>
+            <p class="text-center mt-3"><a href="#" class="text-decoration-none">Learn more</a></p>
+        </div>
+        <hr class="col-10 offset-1 my-5">
+        <div class="col-12">
+            <p class="text-center text-bold fs-2 fw-bold mt-5">The most recognized brands in the world love Bitly</p>
+        </div>
+    </div>
+    <div class="row mb-5">
+        <div class="col-6 col-md-4 col-lg-2 d-flex justify-content-center">
+            <svg xmlns="http://www.w3.org/2000/svg d-flex justify-content-center" width="120" height="60" fill-rule="evenodd"><path d="M72.038 40.703c-5.8 4.283-14.234 6.57-21.486 6.57-10.168 0-19.323-3.76-26.248-10.016-.544-.492-.057-1.162.596-.78 7.474 4.35 16.715 6.965 26.26 6.965 6.438 0 13.52-1.332 20.032-4.096.984-.418 1.806.644.844 1.358m2.418-2.764c-.74-.95-4.9-.448-6.782-.226-.57.07-.657-.427-.144-.784 3.32-2.338 8.77-1.663 9.407-.88s-.165 6.25-3.286 8.858c-.48.4-.936.187-.723-.344.7-1.75 2.272-5.672 1.528-6.625" fill="#f90"/><path d="M67.803 20.427v-2.272a.56.56 0 0 1 .575-.575H78.55c.326 0 .588.235.588.575V20.1c-.004.326-.28.753-.766 1.428l-5.27 7.526c1.96-.048 4.026.244 5.802 1.245.4.226.5.557.54.884v2.425c0 .33-.366.718-.75.518-3.13-1.64-7.287-1.82-10.747.017-.353.192-.723-.192-.723-.522v-2.303c0-.37.004-1 .374-1.563l6.107-8.758H68.4c-.326 0-.588-.23-.588-.57M30.694 34.605H27.6c-.296-.022-.53-.244-.553-.527V18.194c0-.318.266-.57.596-.57h2.886c.3.013.54.244.562.53v2.076h.057c.753-2.007 2.168-2.943 4.074-2.943 1.937 0 3.147.936 4.018 2.943.75-2.007 2.45-2.943 4.275-2.943 1.297 0 2.716.535 3.582 1.737.98 1.336.78 3.278.78 4.98L47.87 34.03c0 .318-.266.575-.596.575h-3.1c-.3-.022-.557-.27-.557-.575V25.6c0-.67.06-2.342-.087-2.977-.23-1.066-.923-1.367-1.82-1.367-.75 0-1.532.5-1.85 1.302s-.287 2.142-.287 3.043v8.42c0 .318-.266.575-.596.575h-3.1c-.313-.022-.557-.27-.557-.575l-.004-8.42c0-1.772.292-4.38-1.907-4.38-2.224 0-2.137 2.542-2.137 4.38v8.42c0 .318-.266.575-.596.575M87.896 17.3c4.592 0 7.078 3.944 7.078 8.958 0 4.845-2.747 8.688-7.078 8.688-4.5 0-6.965-3.944-6.965-8.858 0-4.945 2.486-8.8 6.965-8.8m.026 3.243c-2.28 0-2.425 3.108-2.425 5.045s-.03 6.085 2.398 6.085c2.398 0 2.512-3.343 2.512-5.38 0-1.34-.057-2.943-.46-4.214-.348-1.106-1.04-1.537-2.024-1.537m13.007 14.075h-3.082c-.3-.022-.557-.27-.557-.575l-.004-15.888c.026-.292.283-.518.596-.518h2.87c.27.013.492.196.553.444v2.43h.057c.866-2.172 2.08-3.208 4.218-3.208 1.4 0 2.742.5 3.613 1.872.8 1.27.8 3.408.8 4.945v10c-.035.28-.292.5-.596.5H106.3c-.283-.022-.518-.23-.548-.5V25.48c0-1.737.2-4.28-1.937-4.28-.753 0-1.445.505-1.8 1.27-.435.97-.492 1.937-.492 3.008v8.554c-.004.318-.274.575-.605.575m-41.225-7.6c0 1.206.03 2.2-.58 3.282-.492.87-1.275 1.406-2.142 1.406-1.188 0-1.885-.905-1.885-2.242 0-2.638 2.364-3.117 4.605-3.117v.67m3.12 7.544c-.205.183-.5.196-.73.074-1.027-.853-1.214-1.25-1.776-2.063-1.698 1.732-2.903 2.25-5.102 2.25-2.607 0-4.632-1.606-4.632-4.823 0-2.512 1.358-4.222 3.3-5.058 1.68-.74 4.026-.87 5.82-1.075v-.4c0-.736.057-1.606-.38-2.242-.374-.57-1.097-.805-1.737-.805-1.18 0-2.23.605-2.486 1.86-.052.28-.257.553-.54.566l-3-.322c-.252-.057-.535-.26-.46-.65.688-3.64 3.98-4.736 6.92-4.736 1.506 0 3.474.4 4.662 1.54 1.506 1.406 1.362 3.282 1.362 5.324v4.823c0 1.45.6 2.085 1.167 2.87.196.28.24.614-.013.823L62.82 34.57l-.004-.01M19.12 27.017c0 1.206.03 2.2-.58 3.282-.492.87-1.27 1.406-2.142 1.406-1.188 0-1.88-.905-1.88-2.242 0-2.638 2.364-3.117 4.6-3.117v.67m3.12 7.544c-.205.183-.5.196-.73.074-1.027-.853-1.2-1.25-1.776-2.063-1.698 1.732-2.9 2.25-5.102 2.25C12.028 34.822 10 33.216 10 30c0-2.512 1.362-4.222 3.3-5.058 1.68-.74 4.026-.87 5.82-1.075v-.4c0-.736.057-1.606-.374-2.242-.38-.57-1.1-.805-1.737-.805-1.18 0-2.233.605-2.5 1.86-.052.28-.257.553-.535.566l-3.004-.322c-.252-.057-.53-.26-.46-.65.692-3.64 3.98-4.736 6.92-4.736 1.506 0 3.474.4 4.662 1.54 1.506 1.406 1.362 3.282 1.362 5.324v4.823c0 1.45.6 2.085 1.167 2.87.2.28.244.614-.01.823l-2.36 2.052-.01-.01" fill="#221f1f"/></svg>
+        </div>
+        <div class="col-6 col-md-4 col-lg-2 d-flex justify-content-center">
+            <svg xmlns="http://www.w3.org/2000/svg" width="120" height="60" fill-rule="evenodd"><path d="M72.038 40.703c-5.8 4.283-14.234 6.57-21.486 6.57-10.168 0-19.323-3.76-26.248-10.016-.544-.492-.057-1.162.596-.78 7.474 4.35 16.715 6.965 26.26 6.965 6.438 0 13.52-1.332 20.032-4.096.984-.418 1.806.644.844 1.358m2.418-2.764c-.74-.95-4.9-.448-6.782-.226-.57.07-.657-.427-.144-.784 3.32-2.338 8.77-1.663 9.407-.88s-.165 6.25-3.286 8.858c-.48.4-.936.187-.723-.344.7-1.75 2.272-5.672 1.528-6.625" fill="#f90"/><path d="M67.803 20.427v-2.272a.56.56 0 0 1 .575-.575H78.55c.326 0 .588.235.588.575V20.1c-.004.326-.28.753-.766 1.428l-5.27 7.526c1.96-.048 4.026.244 5.802 1.245.4.226.5.557.54.884v2.425c0 .33-.366.718-.75.518-3.13-1.64-7.287-1.82-10.747.017-.353.192-.723-.192-.723-.522v-2.303c0-.37.004-1 .374-1.563l6.107-8.758H68.4c-.326 0-.588-.23-.588-.57M30.694 34.605H27.6c-.296-.022-.53-.244-.553-.527V18.194c0-.318.266-.57.596-.57h2.886c.3.013.54.244.562.53v2.076h.057c.753-2.007 2.168-2.943 4.074-2.943 1.937 0 3.147.936 4.018 2.943.75-2.007 2.45-2.943 4.275-2.943 1.297 0 2.716.535 3.582 1.737.98 1.336.78 3.278.78 4.98L47.87 34.03c0 .318-.266.575-.596.575h-3.1c-.3-.022-.557-.27-.557-.575V25.6c0-.67.06-2.342-.087-2.977-.23-1.066-.923-1.367-1.82-1.367-.75 0-1.532.5-1.85 1.302s-.287 2.142-.287 3.043v8.42c0 .318-.266.575-.596.575h-3.1c-.313-.022-.557-.27-.557-.575l-.004-8.42c0-1.772.292-4.38-1.907-4.38-2.224 0-2.137 2.542-2.137 4.38v8.42c0 .318-.266.575-.596.575M87.896 17.3c4.592 0 7.078 3.944 7.078 8.958 0 4.845-2.747 8.688-7.078 8.688-4.5 0-6.965-3.944-6.965-8.858 0-4.945 2.486-8.8 6.965-8.8m.026 3.243c-2.28 0-2.425 3.108-2.425 5.045s-.03 6.085 2.398 6.085c2.398 0 2.512-3.343 2.512-5.38 0-1.34-.057-2.943-.46-4.214-.348-1.106-1.04-1.537-2.024-1.537m13.007 14.075h-3.082c-.3-.022-.557-.27-.557-.575l-.004-15.888c.026-.292.283-.518.596-.518h2.87c.27.013.492.196.553.444v2.43h.057c.866-2.172 2.08-3.208 4.218-3.208 1.4 0 2.742.5 3.613 1.872.8 1.27.8 3.408.8 4.945v10c-.035.28-.292.5-.596.5H106.3c-.283-.022-.518-.23-.548-.5V25.48c0-1.737.2-4.28-1.937-4.28-.753 0-1.445.505-1.8 1.27-.435.97-.492 1.937-.492 3.008v8.554c-.004.318-.274.575-.605.575m-41.225-7.6c0 1.206.03 2.2-.58 3.282-.492.87-1.275 1.406-2.142 1.406-1.188 0-1.885-.905-1.885-2.242 0-2.638 2.364-3.117 4.605-3.117v.67m3.12 7.544c-.205.183-.5.196-.73.074-1.027-.853-1.214-1.25-1.776-2.063-1.698 1.732-2.903 2.25-5.102 2.25-2.607 0-4.632-1.606-4.632-4.823 0-2.512 1.358-4.222 3.3-5.058 1.68-.74 4.026-.87 5.82-1.075v-.4c0-.736.057-1.606-.38-2.242-.374-.57-1.097-.805-1.737-.805-1.18 0-2.23.605-2.486 1.86-.052.28-.257.553-.54.566l-3-.322c-.252-.057-.535-.26-.46-.65.688-3.64 3.98-4.736 6.92-4.736 1.506 0 3.474.4 4.662 1.54 1.506 1.406 1.362 3.282 1.362 5.324v4.823c0 1.45.6 2.085 1.167 2.87.196.28.24.614-.013.823L62.82 34.57l-.004-.01M19.12 27.017c0 1.206.03 2.2-.58 3.282-.492.87-1.27 1.406-2.142 1.406-1.188 0-1.88-.905-1.88-2.242 0-2.638 2.364-3.117 4.6-3.117v.67m3.12 7.544c-.205.183-.5.196-.73.074-1.027-.853-1.2-1.25-1.776-2.063-1.698 1.732-2.9 2.25-5.102 2.25C12.028 34.822 10 33.216 10 30c0-2.512 1.362-4.222 3.3-5.058 1.68-.74 4.026-.87 5.82-1.075v-.4c0-.736.057-1.606-.374-2.242-.38-.57-1.1-.805-1.737-.805-1.18 0-2.233.605-2.5 1.86-.052.28-.257.553-.535.566l-3.004-.322c-.252-.057-.53-.26-.46-.65.692-3.64 3.98-4.736 6.92-4.736 1.506 0 3.474.4 4.662 1.54 1.506 1.406 1.362 3.282 1.362 5.324v4.823c0 1.45.6 2.085 1.167 2.87.2.28.244.614-.01.823l-2.36 2.052-.01-.01" fill="#221f1f"/></svg>
+        </div>
+        <div class="col-6 col-md-4 col-lg-2 d-flex justify-content-center">
+            <svg xmlns="http://www.w3.org/2000/svg" width="120" height="60" fill-rule="evenodd"><path d="M72.038 40.703c-5.8 4.283-14.234 6.57-21.486 6.57-10.168 0-19.323-3.76-26.248-10.016-.544-.492-.057-1.162.596-.78 7.474 4.35 16.715 6.965 26.26 6.965 6.438 0 13.52-1.332 20.032-4.096.984-.418 1.806.644.844 1.358m2.418-2.764c-.74-.95-4.9-.448-6.782-.226-.57.07-.657-.427-.144-.784 3.32-2.338 8.77-1.663 9.407-.88s-.165 6.25-3.286 8.858c-.48.4-.936.187-.723-.344.7-1.75 2.272-5.672 1.528-6.625" fill="#f90"/><path d="M67.803 20.427v-2.272a.56.56 0 0 1 .575-.575H78.55c.326 0 .588.235.588.575V20.1c-.004.326-.28.753-.766 1.428l-5.27 7.526c1.96-.048 4.026.244 5.802 1.245.4.226.5.557.54.884v2.425c0 .33-.366.718-.75.518-3.13-1.64-7.287-1.82-10.747.017-.353.192-.723-.192-.723-.522v-2.303c0-.37.004-1 .374-1.563l6.107-8.758H68.4c-.326 0-.588-.23-.588-.57M30.694 34.605H27.6c-.296-.022-.53-.244-.553-.527V18.194c0-.318.266-.57.596-.57h2.886c.3.013.54.244.562.53v2.076h.057c.753-2.007 2.168-2.943 4.074-2.943 1.937 0 3.147.936 4.018 2.943.75-2.007 2.45-2.943 4.275-2.943 1.297 0 2.716.535 3.582 1.737.98 1.336.78 3.278.78 4.98L47.87 34.03c0 .318-.266.575-.596.575h-3.1c-.3-.022-.557-.27-.557-.575V25.6c0-.67.06-2.342-.087-2.977-.23-1.066-.923-1.367-1.82-1.367-.75 0-1.532.5-1.85 1.302s-.287 2.142-.287 3.043v8.42c0 .318-.266.575-.596.575h-3.1c-.313-.022-.557-.27-.557-.575l-.004-8.42c0-1.772.292-4.38-1.907-4.38-2.224 0-2.137 2.542-2.137 4.38v8.42c0 .318-.266.575-.596.575M87.896 17.3c4.592 0 7.078 3.944 7.078 8.958 0 4.845-2.747 8.688-7.078 8.688-4.5 0-6.965-3.944-6.965-8.858 0-4.945 2.486-8.8 6.965-8.8m.026 3.243c-2.28 0-2.425 3.108-2.425 5.045s-.03 6.085 2.398 6.085c2.398 0 2.512-3.343 2.512-5.38 0-1.34-.057-2.943-.46-4.214-.348-1.106-1.04-1.537-2.024-1.537m13.007 14.075h-3.082c-.3-.022-.557-.27-.557-.575l-.004-15.888c.026-.292.283-.518.596-.518h2.87c.27.013.492.196.553.444v2.43h.057c.866-2.172 2.08-3.208 4.218-3.208 1.4 0 2.742.5 3.613 1.872.8 1.27.8 3.408.8 4.945v10c-.035.28-.292.5-.596.5H106.3c-.283-.022-.518-.23-.548-.5V25.48c0-1.737.2-4.28-1.937-4.28-.753 0-1.445.505-1.8 1.27-.435.97-.492 1.937-.492 3.008v8.554c-.004.318-.274.575-.605.575m-41.225-7.6c0 1.206.03 2.2-.58 3.282-.492.87-1.275 1.406-2.142 1.406-1.188 0-1.885-.905-1.885-2.242 0-2.638 2.364-3.117 4.605-3.117v.67m3.12 7.544c-.205.183-.5.196-.73.074-1.027-.853-1.214-1.25-1.776-2.063-1.698 1.732-2.903 2.25-5.102 2.25-2.607 0-4.632-1.606-4.632-4.823 0-2.512 1.358-4.222 3.3-5.058 1.68-.74 4.026-.87 5.82-1.075v-.4c0-.736.057-1.606-.38-2.242-.374-.57-1.097-.805-1.737-.805-1.18 0-2.23.605-2.486 1.86-.052.28-.257.553-.54.566l-3-.322c-.252-.057-.535-.26-.46-.65.688-3.64 3.98-4.736 6.92-4.736 1.506 0 3.474.4 4.662 1.54 1.506 1.406 1.362 3.282 1.362 5.324v4.823c0 1.45.6 2.085 1.167 2.87.196.28.24.614-.013.823L62.82 34.57l-.004-.01M19.12 27.017c0 1.206.03 2.2-.58 3.282-.492.87-1.27 1.406-2.142 1.406-1.188 0-1.88-.905-1.88-2.242 0-2.638 2.364-3.117 4.6-3.117v.67m3.12 7.544c-.205.183-.5.196-.73.074-1.027-.853-1.2-1.25-1.776-2.063-1.698 1.732-2.9 2.25-5.102 2.25C12.028 34.822 10 33.216 10 30c0-2.512 1.362-4.222 3.3-5.058 1.68-.74 4.026-.87 5.82-1.075v-.4c0-.736.057-1.606-.374-2.242-.38-.57-1.1-.805-1.737-.805-1.18 0-2.233.605-2.5 1.86-.052.28-.257.553-.535.566l-3.004-.322c-.252-.057-.53-.26-.46-.65.692-3.64 3.98-4.736 6.92-4.736 1.506 0 3.474.4 4.662 1.54 1.506 1.406 1.362 3.282 1.362 5.324v4.823c0 1.45.6 2.085 1.167 2.87.2.28.244.614-.01.823l-2.36 2.052-.01-.01" fill="#221f1f"/></svg>
+        </div>
+        <div class="col-6 col-md-4 col-lg-2 d-flex justify-content-center">
+            <svg xmlns="http://www.w3.org/2000/svg" width="120" height="60" fill-rule="evenodd"><path d="M72.038 40.703c-5.8 4.283-14.234 6.57-21.486 6.57-10.168 0-19.323-3.76-26.248-10.016-.544-.492-.057-1.162.596-.78 7.474 4.35 16.715 6.965 26.26 6.965 6.438 0 13.52-1.332 20.032-4.096.984-.418 1.806.644.844 1.358m2.418-2.764c-.74-.95-4.9-.448-6.782-.226-.57.07-.657-.427-.144-.784 3.32-2.338 8.77-1.663 9.407-.88s-.165 6.25-3.286 8.858c-.48.4-.936.187-.723-.344.7-1.75 2.272-5.672 1.528-6.625" fill="#f90"/><path d="M67.803 20.427v-2.272a.56.56 0 0 1 .575-.575H78.55c.326 0 .588.235.588.575V20.1c-.004.326-.28.753-.766 1.428l-5.27 7.526c1.96-.048 4.026.244 5.802 1.245.4.226.5.557.54.884v2.425c0 .33-.366.718-.75.518-3.13-1.64-7.287-1.82-10.747.017-.353.192-.723-.192-.723-.522v-2.303c0-.37.004-1 .374-1.563l6.107-8.758H68.4c-.326 0-.588-.23-.588-.57M30.694 34.605H27.6c-.296-.022-.53-.244-.553-.527V18.194c0-.318.266-.57.596-.57h2.886c.3.013.54.244.562.53v2.076h.057c.753-2.007 2.168-2.943 4.074-2.943 1.937 0 3.147.936 4.018 2.943.75-2.007 2.45-2.943 4.275-2.943 1.297 0 2.716.535 3.582 1.737.98 1.336.78 3.278.78 4.98L47.87 34.03c0 .318-.266.575-.596.575h-3.1c-.3-.022-.557-.27-.557-.575V25.6c0-.67.06-2.342-.087-2.977-.23-1.066-.923-1.367-1.82-1.367-.75 0-1.532.5-1.85 1.302s-.287 2.142-.287 3.043v8.42c0 .318-.266.575-.596.575h-3.1c-.313-.022-.557-.27-.557-.575l-.004-8.42c0-1.772.292-4.38-1.907-4.38-2.224 0-2.137 2.542-2.137 4.38v8.42c0 .318-.266.575-.596.575M87.896 17.3c4.592 0 7.078 3.944 7.078 8.958 0 4.845-2.747 8.688-7.078 8.688-4.5 0-6.965-3.944-6.965-8.858 0-4.945 2.486-8.8 6.965-8.8m.026 3.243c-2.28 0-2.425 3.108-2.425 5.045s-.03 6.085 2.398 6.085c2.398 0 2.512-3.343 2.512-5.38 0-1.34-.057-2.943-.46-4.214-.348-1.106-1.04-1.537-2.024-1.537m13.007 14.075h-3.082c-.3-.022-.557-.27-.557-.575l-.004-15.888c.026-.292.283-.518.596-.518h2.87c.27.013.492.196.553.444v2.43h.057c.866-2.172 2.08-3.208 4.218-3.208 1.4 0 2.742.5 3.613 1.872.8 1.27.8 3.408.8 4.945v10c-.035.28-.292.5-.596.5H106.3c-.283-.022-.518-.23-.548-.5V25.48c0-1.737.2-4.28-1.937-4.28-.753 0-1.445.505-1.8 1.27-.435.97-.492 1.937-.492 3.008v8.554c-.004.318-.274.575-.605.575m-41.225-7.6c0 1.206.03 2.2-.58 3.282-.492.87-1.275 1.406-2.142 1.406-1.188 0-1.885-.905-1.885-2.242 0-2.638 2.364-3.117 4.605-3.117v.67m3.12 7.544c-.205.183-.5.196-.73.074-1.027-.853-1.214-1.25-1.776-2.063-1.698 1.732-2.903 2.25-5.102 2.25-2.607 0-4.632-1.606-4.632-4.823 0-2.512 1.358-4.222 3.3-5.058 1.68-.74 4.026-.87 5.82-1.075v-.4c0-.736.057-1.606-.38-2.242-.374-.57-1.097-.805-1.737-.805-1.18 0-2.23.605-2.486 1.86-.052.28-.257.553-.54.566l-3-.322c-.252-.057-.535-.26-.46-.65.688-3.64 3.98-4.736 6.92-4.736 1.506 0 3.474.4 4.662 1.54 1.506 1.406 1.362 3.282 1.362 5.324v4.823c0 1.45.6 2.085 1.167 2.87.196.28.24.614-.013.823L62.82 34.57l-.004-.01M19.12 27.017c0 1.206.03 2.2-.58 3.282-.492.87-1.27 1.406-2.142 1.406-1.188 0-1.88-.905-1.88-2.242 0-2.638 2.364-3.117 4.6-3.117v.67m3.12 7.544c-.205.183-.5.196-.73.074-1.027-.853-1.2-1.25-1.776-2.063-1.698 1.732-2.9 2.25-5.102 2.25C12.028 34.822 10 33.216 10 30c0-2.512 1.362-4.222 3.3-5.058 1.68-.74 4.026-.87 5.82-1.075v-.4c0-.736.057-1.606-.374-2.242-.38-.57-1.1-.805-1.737-.805-1.18 0-2.233.605-2.5 1.86-.052.28-.257.553-.535.566l-3.004-.322c-.252-.057-.53-.26-.46-.65.692-3.64 3.98-4.736 6.92-4.736 1.506 0 3.474.4 4.662 1.54 1.506 1.406 1.362 3.282 1.362 5.324v4.823c0 1.45.6 2.085 1.167 2.87.2.28.244.614-.01.823l-2.36 2.052-.01-.01" fill="#221f1f"/></svg>
+        </div>
+        <div class="col-6 col-md-4 col-lg-2 d-flex justify-content-center">
+            <svg xmlns="http://www.w3.org/2000/svg" width="120" height="60" fill-rule="evenodd"><path d="M72.038 40.703c-5.8 4.283-14.234 6.57-21.486 6.57-10.168 0-19.323-3.76-26.248-10.016-.544-.492-.057-1.162.596-.78 7.474 4.35 16.715 6.965 26.26 6.965 6.438 0 13.52-1.332 20.032-4.096.984-.418 1.806.644.844 1.358m2.418-2.764c-.74-.95-4.9-.448-6.782-.226-.57.07-.657-.427-.144-.784 3.32-2.338 8.77-1.663 9.407-.88s-.165 6.25-3.286 8.858c-.48.4-.936.187-.723-.344.7-1.75 2.272-5.672 1.528-6.625" fill="#f90"/><path d="M67.803 20.427v-2.272a.56.56 0 0 1 .575-.575H78.55c.326 0 .588.235.588.575V20.1c-.004.326-.28.753-.766 1.428l-5.27 7.526c1.96-.048 4.026.244 5.802 1.245.4.226.5.557.54.884v2.425c0 .33-.366.718-.75.518-3.13-1.64-7.287-1.82-10.747.017-.353.192-.723-.192-.723-.522v-2.303c0-.37.004-1 .374-1.563l6.107-8.758H68.4c-.326 0-.588-.23-.588-.57M30.694 34.605H27.6c-.296-.022-.53-.244-.553-.527V18.194c0-.318.266-.57.596-.57h2.886c.3.013.54.244.562.53v2.076h.057c.753-2.007 2.168-2.943 4.074-2.943 1.937 0 3.147.936 4.018 2.943.75-2.007 2.45-2.943 4.275-2.943 1.297 0 2.716.535 3.582 1.737.98 1.336.78 3.278.78 4.98L47.87 34.03c0 .318-.266.575-.596.575h-3.1c-.3-.022-.557-.27-.557-.575V25.6c0-.67.06-2.342-.087-2.977-.23-1.066-.923-1.367-1.82-1.367-.75 0-1.532.5-1.85 1.302s-.287 2.142-.287 3.043v8.42c0 .318-.266.575-.596.575h-3.1c-.313-.022-.557-.27-.557-.575l-.004-8.42c0-1.772.292-4.38-1.907-4.38-2.224 0-2.137 2.542-2.137 4.38v8.42c0 .318-.266.575-.596.575M87.896 17.3c4.592 0 7.078 3.944 7.078 8.958 0 4.845-2.747 8.688-7.078 8.688-4.5 0-6.965-3.944-6.965-8.858 0-4.945 2.486-8.8 6.965-8.8m.026 3.243c-2.28 0-2.425 3.108-2.425 5.045s-.03 6.085 2.398 6.085c2.398 0 2.512-3.343 2.512-5.38 0-1.34-.057-2.943-.46-4.214-.348-1.106-1.04-1.537-2.024-1.537m13.007 14.075h-3.082c-.3-.022-.557-.27-.557-.575l-.004-15.888c.026-.292.283-.518.596-.518h2.87c.27.013.492.196.553.444v2.43h.057c.866-2.172 2.08-3.208 4.218-3.208 1.4 0 2.742.5 3.613 1.872.8 1.27.8 3.408.8 4.945v10c-.035.28-.292.5-.596.5H106.3c-.283-.022-.518-.23-.548-.5V25.48c0-1.737.2-4.28-1.937-4.28-.753 0-1.445.505-1.8 1.27-.435.97-.492 1.937-.492 3.008v8.554c-.004.318-.274.575-.605.575m-41.225-7.6c0 1.206.03 2.2-.58 3.282-.492.87-1.275 1.406-2.142 1.406-1.188 0-1.885-.905-1.885-2.242 0-2.638 2.364-3.117 4.605-3.117v.67m3.12 7.544c-.205.183-.5.196-.73.074-1.027-.853-1.214-1.25-1.776-2.063-1.698 1.732-2.903 2.25-5.102 2.25-2.607 0-4.632-1.606-4.632-4.823 0-2.512 1.358-4.222 3.3-5.058 1.68-.74 4.026-.87 5.82-1.075v-.4c0-.736.057-1.606-.38-2.242-.374-.57-1.097-.805-1.737-.805-1.18 0-2.23.605-2.486 1.86-.052.28-.257.553-.54.566l-3-.322c-.252-.057-.535-.26-.46-.65.688-3.64 3.98-4.736 6.92-4.736 1.506 0 3.474.4 4.662 1.54 1.506 1.406 1.362 3.282 1.362 5.324v4.823c0 1.45.6 2.085 1.167 2.87.196.28.24.614-.013.823L62.82 34.57l-.004-.01M19.12 27.017c0 1.206.03 2.2-.58 3.282-.492.87-1.27 1.406-2.142 1.406-1.188 0-1.88-.905-1.88-2.242 0-2.638 2.364-3.117 4.6-3.117v.67m3.12 7.544c-.205.183-.5.196-.73.074-1.027-.853-1.2-1.25-1.776-2.063-1.698 1.732-2.9 2.25-5.102 2.25C12.028 34.822 10 33.216 10 30c0-2.512 1.362-4.222 3.3-5.058 1.68-.74 4.026-.87 5.82-1.075v-.4c0-.736.057-1.606-.374-2.242-.38-.57-1.1-.805-1.737-.805-1.18 0-2.233.605-2.5 1.86-.052.28-.257.553-.535.566l-3.004-.322c-.252-.057-.53-.26-.46-.65.692-3.64 3.98-4.736 6.92-4.736 1.506 0 3.474.4 4.662 1.54 1.506 1.406 1.362 3.282 1.362 5.324v4.823c0 1.45.6 2.085 1.167 2.87.2.28.244.614-.01.823l-2.36 2.052-.01-.01" fill="#221f1f"/></svg>
+        </div>
+        <div class="col-6 col-md-4 col-lg-2 d-flex justify-content-center">
+            <svg xmlns="http://www.w3.org/2000/svg" width="120" height="60" fill-rule="evenodd"><path d="M72.038 40.703c-5.8 4.283-14.234 6.57-21.486 6.57-10.168 0-19.323-3.76-26.248-10.016-.544-.492-.057-1.162.596-.78 7.474 4.35 16.715 6.965 26.26 6.965 6.438 0 13.52-1.332 20.032-4.096.984-.418 1.806.644.844 1.358m2.418-2.764c-.74-.95-4.9-.448-6.782-.226-.57.07-.657-.427-.144-.784 3.32-2.338 8.77-1.663 9.407-.88s-.165 6.25-3.286 8.858c-.48.4-.936.187-.723-.344.7-1.75 2.272-5.672 1.528-6.625" fill="#f90"/><path d="M67.803 20.427v-2.272a.56.56 0 0 1 .575-.575H78.55c.326 0 .588.235.588.575V20.1c-.004.326-.28.753-.766 1.428l-5.27 7.526c1.96-.048 4.026.244 5.802 1.245.4.226.5.557.54.884v2.425c0 .33-.366.718-.75.518-3.13-1.64-7.287-1.82-10.747.017-.353.192-.723-.192-.723-.522v-2.303c0-.37.004-1 .374-1.563l6.107-8.758H68.4c-.326 0-.588-.23-.588-.57M30.694 34.605H27.6c-.296-.022-.53-.244-.553-.527V18.194c0-.318.266-.57.596-.57h2.886c.3.013.54.244.562.53v2.076h.057c.753-2.007 2.168-2.943 4.074-2.943 1.937 0 3.147.936 4.018 2.943.75-2.007 2.45-2.943 4.275-2.943 1.297 0 2.716.535 3.582 1.737.98 1.336.78 3.278.78 4.98L47.87 34.03c0 .318-.266.575-.596.575h-3.1c-.3-.022-.557-.27-.557-.575V25.6c0-.67.06-2.342-.087-2.977-.23-1.066-.923-1.367-1.82-1.367-.75 0-1.532.5-1.85 1.302s-.287 2.142-.287 3.043v8.42c0 .318-.266.575-.596.575h-3.1c-.313-.022-.557-.27-.557-.575l-.004-8.42c0-1.772.292-4.38-1.907-4.38-2.224 0-2.137 2.542-2.137 4.38v8.42c0 .318-.266.575-.596.575M87.896 17.3c4.592 0 7.078 3.944 7.078 8.958 0 4.845-2.747 8.688-7.078 8.688-4.5 0-6.965-3.944-6.965-8.858 0-4.945 2.486-8.8 6.965-8.8m.026 3.243c-2.28 0-2.425 3.108-2.425 5.045s-.03 6.085 2.398 6.085c2.398 0 2.512-3.343 2.512-5.38 0-1.34-.057-2.943-.46-4.214-.348-1.106-1.04-1.537-2.024-1.537m13.007 14.075h-3.082c-.3-.022-.557-.27-.557-.575l-.004-15.888c.026-.292.283-.518.596-.518h2.87c.27.013.492.196.553.444v2.43h.057c.866-2.172 2.08-3.208 4.218-3.208 1.4 0 2.742.5 3.613 1.872.8 1.27.8 3.408.8 4.945v10c-.035.28-.292.5-.596.5H106.3c-.283-.022-.518-.23-.548-.5V25.48c0-1.737.2-4.28-1.937-4.28-.753 0-1.445.505-1.8 1.27-.435.97-.492 1.937-.492 3.008v8.554c-.004.318-.274.575-.605.575m-41.225-7.6c0 1.206.03 2.2-.58 3.282-.492.87-1.275 1.406-2.142 1.406-1.188 0-1.885-.905-1.885-2.242 0-2.638 2.364-3.117 4.605-3.117v.67m3.12 7.544c-.205.183-.5.196-.73.074-1.027-.853-1.214-1.25-1.776-2.063-1.698 1.732-2.903 2.25-5.102 2.25-2.607 0-4.632-1.606-4.632-4.823 0-2.512 1.358-4.222 3.3-5.058 1.68-.74 4.026-.87 5.82-1.075v-.4c0-.736.057-1.606-.38-2.242-.374-.57-1.097-.805-1.737-.805-1.18 0-2.23.605-2.486 1.86-.052.28-.257.553-.54.566l-3-.322c-.252-.057-.535-.26-.46-.65.688-3.64 3.98-4.736 6.92-4.736 1.506 0 3.474.4 4.662 1.54 1.506 1.406 1.362 3.282 1.362 5.324v4.823c0 1.45.6 2.085 1.167 2.87.196.28.24.614-.013.823L62.82 34.57l-.004-.01M19.12 27.017c0 1.206.03 2.2-.58 3.282-.492.87-1.27 1.406-2.142 1.406-1.188 0-1.88-.905-1.88-2.242 0-2.638 2.364-3.117 4.6-3.117v.67m3.12 7.544c-.205.183-.5.196-.73.074-1.027-.853-1.2-1.25-1.776-2.063-1.698 1.732-2.9 2.25-5.102 2.25C12.028 34.822 10 33.216 10 30c0-2.512 1.362-4.222 3.3-5.058 1.68-.74 4.026-.87 5.82-1.075v-.4c0-.736.057-1.606-.374-2.242-.38-.57-1.1-.805-1.737-.805-1.18 0-2.233.605-2.5 1.86-.052.28-.257.553-.535.566l-3.004-.322c-.252-.057-.53-.26-.46-.65.692-3.64 3.98-4.736 6.92-4.736 1.506 0 3.474.4 4.662 1.54 1.506 1.406 1.362 3.282 1.362 5.324v4.823c0 1.45.6 2.085 1.167 2.87.2.28.244.614-.01.823l-2.36 2.052-.01-.01" fill="#221f1f"/></svg>
+        </div>
+    </div>
+    <div class="row my-5">
+        <h1 class="h3 fw-bold text-center my-5">Frequently asked questions</h1>
+        <div class="accordion my-3" id="acd">
+            <div class="accordion-item border-top-0 border-start-0 border-end-0">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed fw-bold" data-bs-toggle="collapse" data-bs-target="#collapseAcd1">What is a URL Shortener?</button>
+                </h2>
+                <section class="accordion-body collapse" id="collapseAcd1" data-bs-parent="#acd">
+                    A URL shortener, also known as a link shortener, seems like a simple tool, but it is a service that can have a dramatic impact on your marketing efforts.
+Link shorteners work by transforming any long URL into a shorter, more readable link. When a user clicks the shortened version, they’re automatically forwarded to the destination URL.
+Think of a short URL as a more descriptive and memorable nickname for your long webpage address. You can, for example, use a short URL like bit.ly/CelebrateBitly so people will have a good idea about where your link will lead before they click it.
+If you’re contributing content to the online world, you need a URL shortener.
+Make your URLs stand out with our easy to use free link shortener above.
+                </section>
+            </div>
+            <div class="accordion-item border-top-0 border-start-0 border-end-0">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed fw-bold" data-bs-toggle="collapse" data-bs-target="#collapseAcd2">Benefits of a Short URL</button>
+                </h2>
+                <section class="accordion-body collapse" id="collapseAcd2" data-bs-parent="#acd">
+                    How many people can even remember a long web address, especially if it has tons of characters and symbols? A short URL can make your link more memorable. Not only does it allow people to easily recall and share your link with others, it can also dramatically improve traffic to your content.
+On a more practical side, a short URL is also easier to incorporate into your collateral – whether you’re looking to engage with your customers offline or online.
+Bitly is the best URL shortener for everyone, from influencers to small brands to large enterprises, who are looking for a simple way to create, track and manage their links.
+                </section>
+            </div>
+            <div class="accordion-item border-top-0 border-start-0 border-end-0">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed fw-bold" data-bs-toggle="collapse" data-bs-target="#collapseAcd3">What is a Custom URL Shortener?</button>
+                </h2>
+                <section class="accordion-body collapse" id="collapseAcd3" data-bs-parent="#acd">
+A custom URL shortener, sometimes referred to as a branded URL shortener, lets you brand your links.
+For example, instead of bit.ly/xyz, you could use a custom short URL like yourbrnd.co/xyz.
+There are several benefits of branding your short links. Branded links build trust between your audience and your business, drive more clicks, give your audience a preview of where they are being taken and increase brand awareness.
+A link shortening service that includes custom short URLs is vital to improving audience engagement with your communications. A short URL is good, but a custom URL works every time.
+                </section>
+            </div>
+            <div class="accordion-item border-top-0 border-start-0 border-end-0">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed fw-bold" data-bs-toggle="collapse" data-bs-target="#collapseAcd4">Features of Bitly’s Link Management Platform</button>
+                </h2>
+                <section class="accordion-body collapse" id="collapseAcd4" data-bs-parent="#acd">
+                    If you’re looking to shorten just a link or two, our free URL shortener service will work for you.
+But if you’re looking to share unique content in a way that feels personal to each user, you will need a link management platform. With our platform, you can brand your links with a custom domain, build QR codes, shorten links in bulk, redirect links, build campaigns and leverage many more features. If you need to create links at higher volumes, you can also take advantage of our powerful Bitly API.
+Creators, small businesses, large enterprises: if you’re looking to grow and scale your brand or business – Bitly has a plan with the features you need.
+                </section>
+            </div>
+            <div class="accordion-item border-top-0 border-start-0 border-end-0">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed fw-bold" data-bs-toggle="collapse" data-bs-target="#collapseAcd5">Why Choose Bitly</button>
+                </h2>
+                <section class="accordion-body collapse" id="collapseAcd5" data-bs-parent="#acd">
+Whether you’re sharing one link or millions, our platform was built to help you make every point of connection between your content and your audience ignite action.
+That’s why the most recognized brands in the world love our platform.
+                </section>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="blue-bg d-flex justify-content-center flex-column py-5 p-3">
+    <h1 class="h2 fw-bold text-center text-white my-3">More than a free link shortener</h1>
+    <button class="btn btn-primary mx-auto px-4 py-3 my-3 rounded">
+        Get Started
+    </button>
+</div>
+<footer class="container-fluid">
+    <div class="row mx-2">
+        <div class="col-12 col-lg-9">
+            <div class="row">
+                <div class="col-12 col-sm-4 col-lg-3">
+                    <h6 class="h6 fw-bold my-3">Why Bitly?</h6>
+                    <ul class="list-unstyled d-flex flex-column">
+                        <li><a href="#" class="link-dark text-decoration-none my-1">Bitly 101</a></li>
+                        <li><a href="#" class="link-dark text-decoration-none my-1">Integrations & API</a></li>
+                        <li><a href="#" class="link-dark text-decoration-none my-1">Enterprise Class</a></li>
+                        <li><a href="#" class="link-dark text-decoration-none my-1">Pricing</a></li>
+                    </ul>
+                </div>
+                <div class="col-12 col-sm-4 col-lg-3">
+                    <h6 class="h6 fw-bold my-3">Solutions</h6>
+                    <ul class="list-unstyled d-flex flex-column">
+                        <li><a href="#" class="link-dark text-decoration-none my-1">Social Media</a></li>
+                        <li><a href="#" class="link-dark text-decoration-none my-1">Digital Marketing</a></li>
+                        <li><a href="#" class="link-dark text-decoration-none my-1">Customer Service</a></li>
+                        <li><a href="#" class="link-dark text-decoration-none my-1">For Developers</a></li>
+                    </ul>
+                    <h6 class="h6 fw-bold my-3">Features</h6>
+                    <ul class="list-unstyled d-flex flex-column">
+                        <li><a href="#" class="link-dark text-decoration-none my-1">Link Management</a></li>
+                        <li><a href="#" class="link-dark text-decoration-none my-1">Branded Links</a></li>
+                        <li><a href="#" class="link-dark text-decoration-none my-1">Mobile Links</a></li>
+                        <li><a href="#" class="link-dark text-decoration-none my-1">Campaign</a></li>
+                        <li><a href="#" class="link-dark text-decoration-none my-1">Management & Analytics</a></li>
+                        <li><a href="#" class="link-dark text-decoration-none my-1">QR Codes</a></li>
+                    </ul>
+                </div>
+                <div class="col-12 col-sm-4 col-lg-3">
+                    <h6 class="h6 fw-bold my-3">Ressources</h6>
+                    <ul class="list-unstyled d-flex flex-column">
+                        <li><a href="#" class="link-dark text-decoration-none my-1">Blog</a></li>
+                        <li><a href="#" class="link-dark text-decoration-none my-1">Ressource Library</a></li>
+                        <li><a href="#" class="link-dark text-decoration-none my-1">Developers</a></li>
+                        <li><a href="#" class="link-dark text-decoration-none my-1">Support</a></li>
+                    </ul>
+                    <h6 class="h6 fw-bold my-3">Legal</h6>
+                    <ul class="list-unstyled d-flex flex-column">
+                        <li><a href="#" class="link-dark text-decoration-none my-1">Privacy Policy</a></li>
+                        <li><a href="#" class="link-dark text-decoration-none my-1">Terms of Service</a></li>
+                    </ul>
+                </div>
+                <div class="col-12 col-sm-4 col-lg-3">
+                    <h6 class="h6 fw-bold my-3">Company</h6>
+                    <ul class="list-unstyled d-flex flex-column">
+                        <li><a href="#" class="link-dark text-decoration-none my-1">About Bitly</a></li>
+                        <li><a href="#" class="link-dark text-decoration-none my-1">Our Team</a></li>
+                        <li><a href="#" class="link-dark text-decoration-none my-1">Careers</a></li>
+                        <li><a href="#" class="link-dark text-decoration-none my-1">Press</a></li>
+                        <li><a href="#" class="link-dark text-decoration-none my-1">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="col-12 col-lg-2 d-flex flex-column align-items-start">
+            <img src="images/Bitly_icon-icons.com_66736.png" alt="Bitly-footer" class="img-fluid mb-2">
+            <p>
+                © 2021 Bitly Handmade in NYC, San Francisco, Denver, and all over the world.
+            </p>
+        </div>
+    </div>
+    <section class="offcanvas offcanvas-end show" id="login-offcanvas">
+        <div class="offcanvas-header">
+            <h2 class="offcanvas-title">Se connecter</h1>
+            <button class="btn btn-close" data-bs-dismiss="offcanvas"></button>
+        </div>
+        <div class="offcanvas-body">
+            <form action="{% url 'shortener' %}" method="post">
+                {% csrf_token %}
+                <!--<div class="mb-3 form-floating">
+                    <input type="text" name="username" id="username" class="form-control" placeholder="username">
+                    <label for="username">username</label>
+                </div>
+                <div class="mb-3 form-floating">
+                    <input type="password" name="password" id="password" class="form-control" placeholder="Votre Post-nom">
+                    <label for="password">password</label>
+                </div>-->
+                {{ form|crispy}}
+                <div class="m-3 form-check">
+                    <label class="form-check-label">
+                        <input type="checkbox" name="accepter" class="form-check-input">
+                        Accepter
+                    </label>
+                </div>
+                <button class="btn btn-primary">
+                    Se connecter
+                </button>
+            </form>
+        </div>
+    </section>
+</footer>
+{% endblock %}

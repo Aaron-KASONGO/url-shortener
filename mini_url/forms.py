@@ -37,7 +37,7 @@ class UserForm(ModelForm):
         model = User
         fields = ('username', 'email', 'password', 'password2')
 
-    def clean_password2(self):
+    def clean_password(self):
         pwd1 = self.cleaned_data.get('password')
         pwd2 = self.cleaned_data.get('password2')
         if pwd1 != pwd2:
